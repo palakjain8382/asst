@@ -1,0 +1,39 @@
+﻿@model Login
+
+@{
+    ViewData["Title"] = "Index";
+}
+<form method="post" asp-controller="Login" asp-action="checkLoginCred">
+   <div class="mb-3 col-sm-3">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+         <div class="mb-3 col-sm-3">
+          <label asp-for="Password"></label>
+            <input type="password" class="form-control" asp-for="Password">
+            <span asp-validation-for="Password" class="text-danger"></span>
+         </div>
+
+
+    <div class="mb-3">
+      <button type="submit" class="btn btn-primary col-sm-1">Login</button>
+      &nbsp;
+     <a asp-controller="Login" asp-action="Create" class="btn btn-secondary">
+                <i class="bi bi-person-plus-fill"></i> &nbsp; Register
+            </a>
+       </div>
+
+        <a asp-controller="EmailForPw" asp-action="Index" class="btn btn-link">Forgot Password </a>
+            </div>
+</form>
+
+
+@section Scripts{
+    @{
+    <partial name="_ValidationScriptsPartial" />
+    }
+    }
+
+
